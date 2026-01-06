@@ -1,0 +1,176 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="15$ OpenSource video doorbell solution."><title>Wyze Doorbell with Thingino Configuration</title><link rel=canonical href=https://horizon0827.github.io/p/thingino-doorbell-wvdb1-configuration/><link rel=stylesheet href=/scss/style.min.833d6eed45de56f48306bf57268d5b8cdfc8a60e8e7bdc99810464fcd033f7c6.css><meta property='og:title' content="Wyze Doorbell with Thingino Configuration"><meta property='og:description' content="15$ OpenSource video doorbell solution."><meta property='og:url' content='https://horizon0827.github.io/p/thingino-doorbell-wvdb1-configuration/'><meta property='og:site_name' content='Yakumo Tech Blog'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Thingino'><meta property='article:tag' content='Homelab'><meta property='article:published_time' content='2026-01-01T00:00:00+00:00'><meta property='article:modified_time' content='2026-01-01T00:00:00+00:00'><meta name=twitter:title content="Wyze Doorbell with Thingino Configuration"><meta name=twitter:description content="15$ OpenSource video doorbell solution."><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_12316f02ad07fe88.png width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>Yakumo Tech Blog</a></h1><h2 class=site-description>Posting some random tech stuff.</h2></div></header><ol class=menu-social><li><a href=https://github.com/horizon0827/horizon0827.github.io target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#installing-thingino>Installing Thingino</a></li><li><a href=#frigate-7x24-nvr>Frigate 7x24 NVR</a></li><li><a href=#two-way-audio>Two way audio</a></li><li><a href=#configure-and-customize-doorbell-button-behavior>Configure and customize doorbell button behavior</a></li><li><a href=#homeassistant-notification>HomeAssistant Notification</a></li></ol></nav></div></section></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/homelab/>Homelab</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/p/thingino-doorbell-wvdb1-configuration/>Wyze Doorbell with Thingino Configuration</a></h2><h3 class=article-subtitle>15$ OpenSource video doorbell solution.</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published datetime=2026-01-01T00:00:00Z>Jan 01, 2026</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>4 minute read</time></div></footer></div></header><section class=article-content><p>I want to record the video of my front door 7x24 and notify me when there is someone there. Also I want myself get notified if someone pressed the doorbell even if I&rsquo;m not at home.</p><p>After some investigation, I bought a Wyze Video Doorbell Gen 1 (Model number: WVDB1).</p><p>Mainly because it&rsquo;s one of the most well supported Thingino video doorbell.</p><h2 id=installing-thingino>Installing Thingino</h2><p>Official wiki already have detailed instruction on how to install Thingino firmware.</p><p>Link:</p><p><a class=link href=https://github.com/themactep/thingino-firmware/wiki/Camera:-Wyze-Doorbell-%28V1%29 target=_blank rel=noopener>https://github.com/themactep/thingino-firmware/wiki/Camera:-Wyze-Doorbell-(V1)</a></p><h2 id=frigate-7x24-nvr>Frigate 7x24 NVR</h2><p>With current thingino firmware, the video stream is rotated 90 degree. It&rsquo;s not recommended that we rotate it from the device itself given limited resource. Also the model don&rsquo;t have a TF slot, which means we practically need sth like <code>Frigate</code> to do the rotation and recording.</p><p>My Frigate config looks like below:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>go2rtc</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>streams</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>camera1_hd</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>ffmpeg:rtsp://thingino:thingino@[ip]:554/ch0#video=h264#rotate=90#audio=copy</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>camera1_sub</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>ffmpeg:rtsp://thingino:thingino@[ip]:554/ch1#video=h264#rotate=90#audio=copy</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>rtsp://thingino:thingino@[ip]:554/ch1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>webrtc</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>candidates</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=m>127.0.0.1</span><span class=p>:</span><span class=m>8555</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>cameras</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>camera1</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>live</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>streams</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>Detect View</span><span class=p>:</span><span class=w> </span><span class=l>camera1_sub</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>HD View</span><span class=p>:</span><span class=w> </span><span class=l>camera1_hd</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>enabled</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>ffmpeg</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>inputs</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span>- <span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>rtsp://localhost:8554/camera1_sub</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>input_args</span><span class=p>:</span><span class=w> </span><span class=l>preset-rtsp-restream</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>roles</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span>- <span class=l>detect</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span>- <span class=l>audio</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span>- <span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>rtsp://localhost:8554/camera1_hd</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>input_args</span><span class=p>:</span><span class=w> </span><span class=l>preset-rtsp-restream</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>roles</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span>- <span class=l>record</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h2 id=two-way-audio>Two way audio</h2><p>Thingino firmware supports 2 way audio (audio input and output). We can make that work with Frigate. Above config I shared contains the key entries to make 2 way audio working.</p><p>Keypart 1: original RTSP as a fallback stream to make audio output working.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=w>    </span><span class=nt>camera1_sub</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>ffmpeg:rtsp://thingino:thingino@[ip]:554/ch1#video=h264#rotate=90#audio=copy</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=c># Two way audio required original rtsp protocol</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>rtsp://thingino:thingino@[ip]:554/ch1</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Keypart 2: WebRTC is required for 2 way audio.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=w>  </span><span class=nt>webrtc</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>candidates</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=m>127.0.0.1</span><span class=p>:</span><span class=m>8555</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Keypart 3: audio tag to make Frigate aware and display relevant UI elements.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=w>        </span>- <span class=nt>path</span><span class=p>:</span><span class=w> </span><span class=l>rtsp://localhost:8554/camera1_sub</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>input_args</span><span class=p>:</span><span class=w> </span><span class=l>preset-rtsp-restream</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>roles</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span>- <span class=l>detect</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span>- <span class=l>audio</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Side note: if you found the output audio is disabed when you use microphone, it&rsquo;s normal, otherwise there will be huge echo.</p><p>Ref doc:
+<a class=link href=https://nils.schimmelmann.us/2025-05-18-enabling-open-source-two-way-audio-in-thingino/ target=_blank rel=noopener>https://nils.schimmelmann.us/2025-05-18-enabling-open-source-two-way-audio-in-thingino/</a></p><h2 id=configure-and-customize-doorbell-button-behavior>Configure and customize doorbell button behavior</h2><p>It&rsquo;s a doorbell, so I want the doorbell button to actually work, which means I want it to execute some custom script when it get pressed.</p><p>The key service here is <code>thingino-button</code> service.</p><p>Check the status by <code>service thingino-button status</code>.</p><p>It is configured by <code>/etc/thingino-button.conf</code></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># User mappings</span>
+</span></span><span class=line><span class=cl><span class=c1>#KEY_0 RELEASE 0 /bin/command1</span>
+</span></span><span class=line><span class=cl>KEY_1 RELEASE <span class=m>0</span> sh /etc/send-msg.sh
+</span></span><span class=line><span class=cl>KEY_1 RELEASE <span class=m>0</span> play /usr/share/sounds/doorbell_3.opus
+</span></span><span class=line><span class=cl><span class=c1>#KEY_1 TIMED 0.1 play /usr/share/sounds/doorbell_3.opus</span>
+</span></span><span class=line><span class=cl><span class=c1>#KEY_1 RELEASE 0 doorbell_ctrl 00:11:22:33 15 1</span>
+</span></span></code></pre></td></tr></table></div></div><p>Make sure for all the edit you make to the conf file, you need to restart service <code>service thingino-button restart</code> for it to apply.</p><p>After some testing, I found for this model, <code>KEY_1</code> here is the doorbell button.</p><p>I commented out the original command and replaced <code>doorbell_ctrl</code> command with my own script to trigger home assistant script.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=cp>#!/bin/sh
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>TOKEN</span><span class=o>=</span><span class=s2>&#34;YOUR HOME ASSISTANT TOKEN&#34;</span>
+</span></span><span class=line><span class=cl><span class=nv>HA_DOMAIN</span><span class=o>=</span><span class=s2>&#34;YOUR HOME ASSISTANT DOMAIN&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;</span><span class=k>$(</span>date <span class=s1>&#39;+%Y-%m-%d %H:%M:%S&#39;</span><span class=k>)</span><span class=s2> - Triggered&#34;</span> &gt;&gt; /tmp/button.log
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>/bin/curl -X POST <span class=se>\
+</span></span></span><span class=line><span class=cl>  -H <span class=s2>&#34;Authorization: Bearer </span><span class=nv>$TOKEN</span><span class=s2>&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>  -H <span class=s2>&#34;Content-Type: application/json&#34;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>  -d <span class=s1>&#39;{&#34;entity_id&#34;: &#34;script.send_critical_notification&#34;}&#39;</span> <span class=se>\
+</span></span></span><span class=line><span class=cl>  <span class=s2>&#34;https://</span><span class=nv>$HA_DOMAIN</span><span class=s2>/api/services/script/send_critical_notification&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=homeassistant-notification>HomeAssistant Notification</h2><p>For iOS, HomeAssistant app have the capability to send critical alert, which bypass all the mute and silent mode. This is exactly what I want to achieve.</p><p>In Home Assistant, I create a script that sends notifications in parallel to all family members.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>alias</span><span class=p>:</span><span class=w> </span><span class=l>send_critical_notification</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>description</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;Unified Critical Alert: Telegram + 3x Mobile Devices&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>sequence</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=nt>parallel</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>action</span><span class=p>:</span><span class=w> </span><span class=l>notify.mobile_app_(your device 1)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>data</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>&lt;&lt;</span><span class=p>:</span><span class=w> </span><span class=cp>*unified_msg</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>data</span><span class=p>:</span><span class=w> </span><span class=cp>&amp;critical_settings</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nt>push</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>              </span><span class=nt>sound</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;Doorbell.caf&#34;</span><span class=w> </span><span class=c># iOS System Sound, need to be imported in app first</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=nt>critical</span><span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>          </span><span class=c># Bypasses silent switch</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=nt>volume</span><span class=p>:</span><span class=w> </span><span class=m>1.0</span><span class=w>          </span><span class=c># Max volume</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=nt>action</span><span class=p>:</span><span class=w> </span><span class=l>notify.mobile_app_(your device 2)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>data</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>&lt;&lt;</span><span class=p>:</span><span class=w> </span><span class=cp>*unified_msg</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>          </span><span class=nt>data</span><span class=p>:</span><span class=w> </span><span class=cp>*critical_settings</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=nt>mode</span><span class=p>:</span><span class=w> </span><span class=l>parallel</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>This is the script get trigged by the script in Thingino.</p></section><footer class=article-footer><section class=article-tags><a href=/tags/thingino/>Thingino</a>
+<a href=/tags/homelab/>Homelab</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/kopia-backup/><div class=article-details><h2 class=article-title>Kopia Backup Solution</h2></div></a></article><article><a href=/p/rk3588-lxc-passthrough/><div class=article-details><h2 class=article-title>RK3588 LXC GPU and NPU passthrough</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//hugo-theme-stack.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2020 -
+2026 Yakumo Tech Blog</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.33.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
